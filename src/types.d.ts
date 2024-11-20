@@ -4,4 +4,5 @@ declare type Game = {
   description: string
   infos: string[]
   image: string
+  classif: number
 }

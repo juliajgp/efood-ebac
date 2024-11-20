@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom'
 import { colors } from '../../styles'
 
 export const Card = styled(Link)`
-  background-color: white;
-  border: 1px solid ${colors.coral};
+  background-color: ${colors.coral};
+  color: white;
   position: relative;
   text-decoration: none;
-  color: ${colors.coral};
   display: block;
   height: 100%;
-  max-width: 472px;
+  width: 320px;
+  padding: 8px;
 
   img {
     display: block;
@@ -21,7 +21,12 @@ export const Card = styled(Link)`
   }
 
   ${TagContainer} {
-    margin-left: 8px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: ${colors.coral};
   }
   
   div {
@@ -41,7 +46,7 @@ export const Title = styled.h3`
   font-weight: bold;
   font-size: 16px;
   display: block;
-  color: ${colors.coral};
+  color: white;
 `
 
 export const Description = styled.p`
@@ -50,24 +55,5 @@ export const Description = styled.p`
   line-height: 22px;
   display: block;
   margin: 16px 0 24px;
-  color: ${colors.coral};
-`
-
-export const Infos = styled.div`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  color: ${colors.coral};
-`
-
-export const Class = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    width: 20px;
-    height: 20px;
-    margin: 0 8px;
-  }
+  color: white;
 `

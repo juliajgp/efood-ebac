@@ -7,7 +7,7 @@ import Sushi from './pages/Sushi'
 const Rotas = () => (
   <Routes>
     <Route path="/" element={<Home />} />
-    <Route path="/kiokisushi" element={<Sushi />} />
+    <Route path="/hiokisushi" element={<Sushi />} />
     {/*<Route path="/ladolcevitatrattoria" element={<LaDolce />} />*/}
   </Routes>
 )
