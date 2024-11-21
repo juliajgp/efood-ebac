@@ -2,7 +2,7 @@ import ProductsList from '../../components/ProductsList'
 
 import spaghetti from '../../assets/images/spaghetti.png'
 import sushi from '../../assets/images/sushi.png'
-import Hero from '../../components/Hero'
+import Banner from '../../components/Banner'
 
 const restaurants: Game[] = [
     {
@@ -64,7 +64,7 @@ const restaurants: Game[] = [
 const Home = () => {
   return (
     <>
-      <Hero />
+      <Banner />
       <ProductsList
         games={restaurants}
         tipoPagina="home"

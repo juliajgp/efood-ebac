@@ -16,7 +16,6 @@ export const Links = styled.ul`
 export const HeaderBar = styled.header`
   background-image: url(${fundo});
   padding: 24px;
-  margin-bottom: 80px;
 
   a,
   span {

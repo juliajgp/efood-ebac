@@ -43,7 +43,7 @@ const products: Game[] = [
 },
   ]
 
-const Sushi = () => {
+const LaDolce = () => {
   return (
     <>
       <Header />
@@ -56,4 +56,4 @@ const Sushi = () => {
   )
 }
 
-export default Sushi
+export default LaDolce

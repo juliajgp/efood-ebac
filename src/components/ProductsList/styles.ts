@@ -9,6 +9,7 @@ export const Container = styled.section<
 >`
   display: flex !important;
   justify-content: center !important;
+  padding: 56px 170px;
 
   ${Card} {
     background-color: ${(props) =>

@@ -1,16 +1,16 @@
-import logo from '../../assets/images/logo.png'
-import { HeroContainer } from './styles'
+import * as S from './styles'
+import spaghetti from '../../assets/images/spaghetti.png'
 
 const Hero = () => {
   return (
-    <HeroContainer>
-      <div>
-        <img src={logo} alt="EFOOD" />
-      </div>
-      <h1>
-        Viva experiências gastronômicas<br />no conforto da sua casa
-      </h1>
-    </HeroContainer>
+    <S.BannerContainer>
+      <S.Banner style={{ backgroundImage: `url(${spaghetti})` }}>
+      </S.Banner>
+      <S.Infos>
+        <p>Italiana</p>
+        <h1>La Dolce Vita</h1>
+      </S.Infos>
+    </S.BannerContainer>
   )
 }
 

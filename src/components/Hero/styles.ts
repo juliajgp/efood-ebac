@@ -1,22 +1,68 @@
 import styled from 'styled-components'
+import { colors, breakpoints } from '../../styles'
 
-import fundo from '../../assets/images/Vector.png'
+export const BannerContainer = styled.div`
+  height: 280px;
+`
 
-export const HeroContainer = styled.header`
+export const Banner = styled.div`
+  position: absolute;
+  display: block;
+  height: 280px;
+  width: 100%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+
+  padding-top: 16px;
+  
+  @media (max-width: ${breakpoints.tablet}) {
+    background-size: cover;
+  }
+
+  &::after {
+    position: absolute;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    opacity: 0.56;
+  }
+
+  .container {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+  }
+`
+
+export const Infos = styled.div`
+  position: relative;
+  height: 100%;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 
-  background-image: url(${fundo});
-  padding: 40px;
-  border-bottom: 1px solid #eee;
-  height: 350px; //no layout original estava 384px
+  padding: 30px 170px;
 
+  h1, p {
+    color: white;
+  }
+  
   h1 {
-    color: rgba(230, 103, 103, 1);
     font-weight: 900;
-    text-align: center;
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  p {
+    font-weight: 100 !important;
+    font-size: 32px;
   }
 `
