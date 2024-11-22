@@ -4,19 +4,23 @@ import * as S from './styles'
 import estrela from '../../assets/images/estrela.png'
 
 type Props = {
-  title: string
-  infos: string[]
-  description: string
-  image: string
-  classif: number
+  titulo: string
+  tipo: string
+  descricao: string
+  capa: string
+  avaliacao: number
+  destacado: boolean
+  id: number
 }
 
 const Restaurant = ({
-  title,
-  infos,
-  description,
-  image,
-  classif
+  titulo,
+  tipo,
+  descricao,
+  capa,
+  avaliacao,
+  destacado,
+  id
 }: Props) => {
   const lowerTitle = (text: string) => {
     return text.replace(/\s+/g, "").toLowerCase()
@@ -24,23 +28,22 @@ const Restaurant = ({
 
   return (
     <S.Card
-      title={`Clique aqui para ver mais detalhes do restaurante: ${title}`}
-      to={`/${lowerTitle(title)}`}
+      title={`Clique aqui para ver mais detalhes do restaurante: ${titulo}`}
+      to={`/restaurante/${id}`}
     >
-      <img src={image} alt={title} />
+      <img src={capa} alt={titulo} />
       <div className='titulo-class'>
-        <S.Title>{title}</S.Title>
+        <S.Title>{titulo}</S.Title>
         <S.Class>
-          {classif}
+          {avaliacao}
           <img src={estrela} />
         </S.Class>
       </div>
       <S.Infos>
-        {infos.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
+        {destacado ? <Tag>Destaque do dia</Tag> : ''}
+        <Tag>{tipo}</Tag>
       </S.Infos>
-      <S.Description>{description}</S.Description>
+      <S.Description>{descricao}</S.Description>
       <Tag>Saiba Mais</Tag>
     </S.Card>
   )

@@ -4,26 +4,31 @@ import Restaurant from '../Restaurant'
 import { Container, List } from './styles'
 
 export type Props = {
-  games: Game[]
+  restaurantes?: Restaurantes[]
+  products?: Produto[]
   tipoPagina: 'home' | 'perfil'
 }
 
-const ProductsList = ({ tipoPagina, games }: Props) => {
+const ProductsList = ({ tipoPagina, restaurantes, products }: Props) => {
   if (tipoPagina === 'home') {
     return (
       <Container tipoPagina={tipoPagina}>
         <div className="container">
           <List tipoPagina={tipoPagina}>
-            {games.map((game) => (
-              <Restaurant
-                key={game.id}
-                infos={game.infos}
-                description={game.description}
-                image={game.image}
-                title={game.name}
-                classif={game.classif}
-              />
-            ))}
+            {restaurantes &&
+              restaurantes.map((restaurante) => (
+                <li key={restaurante.id}>
+                  <Restaurant
+                    id={restaurante.id}
+                    tipo={restaurante.tipo}
+                    descricao={restaurante.descricao}
+                    capa={restaurante.capa}
+                    titulo={restaurante.titulo}
+                    avaliacao={restaurante.avaliacao}
+                    destacado={restaurante.destacado}
+                  />
+                </li>
+              ))}
           </List>
         </div>
       </Container>
@@ -34,12 +39,14 @@ const ProductsList = ({ tipoPagina, games }: Props) => {
       <Container tipoPagina={tipoPagina}>
         <div className="container">
           <List tipoPagina={tipoPagina}>
-            {games.map((game) => (
+            {products && products.map((product) => (
               <Product
-                key={game.id}
-                description={game.description}
-                image={game.image}
-                title={game.name}
+                id={product.id}
+                descricao={product.descricao}
+                foto={product.foto}
+                preco={product.preco}
+                nome={product.nome}
+                porcao={product.porcao}
               />
             ))}
           </List>

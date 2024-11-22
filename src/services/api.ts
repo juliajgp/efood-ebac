@@ -1,5 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
+type Restaurant = {
+  id: number
+  Products: Product[]
+}
+
 type Product = {
   id: number
   price: number
@@ -40,35 +45,14 @@ type PurchaseResponse = {
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://fake-api-tau.vercel.app/api/eplay'
+    baseUrl: 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
   }),
   endpoints: (builder) => ({
-    getFeaturedGame: builder.query<Game, void>({
-      query: () => 'destaque'
+    getRestaurants: builder.query<Restaurantes[], void>({
+      query: () => ''
     }),
-    getOnSale: builder.query<Game[], void>({
-      query: () => 'promocoes'
-    }),
-    getSoon: builder.query<Game[], void>({
-      query: () => 'em-breve'
-    }),
-    getActionGames: builder.query<Game[], void>({
-      query: () => 'acao'
-    }),
-    getSportGames: builder.query<Game[], void>({
-      query: () => 'esportes'
-    }),
-    getSimulationGames: builder.query<Game[], void>({
-      query: () => 'simulacao'
-    }),
-    getFightGames: builder.query<Game[], void>({
-      query: () => 'luta'
-    }),
-    getRpgGames: builder.query<Game[], void>({
-      query: () => 'rpg'
-    }),
-    getGame: builder.query<Game, string>({
-      query: (id) => `jogos/${id}`
+    getMenu: builder.query<Restaurantes, string>({
+      query: (id) => `/${id}`
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
@@ -81,15 +65,8 @@ const api = createApi({
 })
 
 export const {
-  useGetFeaturedGameQuery,
-  useGetSoonQuery,
-  useGetOnSaleQuery,
-  useGetActionGamesQuery,
-  useGetSportGamesQuery,
-  useGetSimulationGamesQuery,
-  useGetFightGamesQuery,
-  useGetRpgGamesQuery,
-  useGetGameQuery,
+  useGetRestaurantsQuery,
+  useGetMenuQuery,
   usePurchaseMutation
 } = api
 

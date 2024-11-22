@@ -1,14 +1,19 @@
 import * as S from './styles'
-import spaghetti from '../../assets/images/spaghetti.png'
 
-const Hero = () => {
+export type Props = {
+  tipo?: string
+  titulo?: string
+  capa?: string
+}
+
+const Hero = ({tipo, titulo, capa}: Props) => {
   return (
     <S.BannerContainer>
-      <S.Banner style={{ backgroundImage: `url(${spaghetti})` }}>
+      <S.Banner style={{ backgroundImage: `url(${capa})` }}>
       </S.Banner>
       <S.Infos>
-        <p>Italiana</p>
-        <h1>La Dolce Vita</h1>
+        <p>{tipo}</p>
+        <h1>{titulo}</h1>
       </S.Infos>
     </S.BannerContainer>
   )

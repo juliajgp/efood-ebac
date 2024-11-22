@@ -1,8 +1,19 @@
-declare type Game = {
+declare type Produto = {
+  foto: string
+  preco: number
   id: number
-  name: string
-  description: string
-  infos: string[]
-  image: string
-  classif: number
+  nome: string
+  descricao: string
+  porcao: string
+}
+
+declare type Restaurantes = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: Produto[]
 }
