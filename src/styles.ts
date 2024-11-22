@@ -4,7 +4,8 @@ export const colors = {
   white: '#fff',
   black: '#111',
   green: '#10AC84',
-  coral: '#e66767'
+  coral: '#e66767',
+  amarelin: 'rgb(255, 235, 217)'
 }
 
 export const breakpoints = {

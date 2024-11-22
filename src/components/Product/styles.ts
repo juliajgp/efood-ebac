@@ -39,7 +39,7 @@ export const Card = styled.div`
   }
 
   ${TagContainer} {
-    background-color: white;
+    background-color: ${colors.amarelin};;
     display: flex;
     align-items: center;
     justify-content: center;

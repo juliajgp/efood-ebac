@@ -3,6 +3,11 @@ import Tag from '../Tag'
 
 import * as S from './styles'
 import closeIcon from '../../assets/images/fechar.png'
+import Button from '../Button'
+
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 
 type Props = {
   foto: string
@@ -25,6 +30,22 @@ const Product = ({
   descricao,
   porcao
 }: Props) => {
+  const [teste, setTeste] = useState<Produto>({
+    foto: foto,
+    preco: preco,
+    id: id,
+    nome: nome,
+    descricao: descricao,
+    porcao: porcao
+  })
+
+  const dispatch = useDispatch()
+
+  const addToCart = () => {
+    dispatch(add(teste))
+    dispatch(open())
+  }
+  
   const getDescription = (text: string) => {
     if (text.length > 95) {
       return text.slice(0, 100) + '...'
@@ -96,20 +117,12 @@ const Product = ({
                     <S.Description>Serve: de {porcao}</S.Description>
                     <div className='button'>
                       <button
-                        onClick={() => {
-                          setModal({
-                            isVisible: true,
-                            foto: foto,
-                            preco: preco,
-                            id: id,
-                            nome: nome,
-                            descricao: descricao,
-                            porcao: porcao
-                          })
-                        }}
+                        type="button"
+                        title="Clique aqui para adicionar este jogo ao carrinho"
+                        onClick={addToCart}
                       >
-                        <Tag>Adicionar ao Carrinho</Tag>
-                      </button> 
+                          <Tag>{`Adicionar ao Carrinho - R$ ${preco}`}</Tag>
+                      </button>
                     </div>
                   </div>
                 </S.Card>
