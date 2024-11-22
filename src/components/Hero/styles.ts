@@ -62,6 +62,7 @@ export const Infos = styled.div`
   }
 
   p {
+    text-transform: capitalize;
     font-weight: 100 !important;
     font-size: 32px;
   }
