@@ -11,7 +11,7 @@ export const Card = styled(Link)`
   color: ${colors.coral};
   display: block;
   height: 100%;
-  max-width: 472px;
+  max-width: 480px;
 
   img {
     display: block;

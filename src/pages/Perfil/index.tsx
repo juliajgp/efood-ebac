@@ -12,7 +12,7 @@ type RestaurantParams = {
 const Perfil = () => {
   const { id } = useParams() as RestaurantParams
   const { data: menu } = useGetMenuQuery(id)
-
+  
   return (
     <>
       <Header  />
@@ -22,7 +22,7 @@ const Perfil = () => {
         capa={menu?.capa}
       />
       <ProductsList
-        tipoPagina="perfil"
+        tipopagina="perfil"
         products={menu?.cardapio}
       />
     </>

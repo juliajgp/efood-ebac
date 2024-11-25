@@ -50,7 +50,7 @@ export const Infos = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 30px 170px;
+  padding: 30px 250px;
 
   h1, p {
     color: white;

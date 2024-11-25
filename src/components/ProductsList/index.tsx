@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Product from '../Product'
 import Restaurant from '../Restaurant'
 
@@ -7,15 +6,15 @@ import * as S from './styles'
 export type Props = {
   restaurantes?: Restaurantes[]
   products?: Produto[]
-  tipoPagina: 'home' | 'perfil'
+  tipopagina: 'home' | 'perfil'
 }
 
-const ProductsList = ({ tipoPagina, restaurantes, products }: Props) => {
-  if (tipoPagina === 'home') {
+const ProductsList = ({ tipopagina, restaurantes, products }: Props) => {
+  if (tipopagina === 'home') {
     return (
-      <S.Container tipoPagina={tipoPagina}>
+      <S.Container tipopagina={tipopagina}>
         <div className="container">
-          <S.List tipoPagina={tipoPagina}>
+          <S.List tipopagina={tipopagina}>
             {restaurantes &&
               restaurantes.map((restaurante) => (
                 <li key={restaurante.id}>
@@ -37,9 +36,9 @@ const ProductsList = ({ tipoPagina, restaurantes, products }: Props) => {
   }
   else {
     return (
-      <S.Container tipoPagina={tipoPagina}>
+      <S.Container tipopagina={tipopagina}>
         <div className="container">
-          <S.List tipoPagina={tipoPagina}>
+          <S.List tipopagina={tipopagina}>
             {products && products.map((product) => (
               <Product
                 id={product.id}

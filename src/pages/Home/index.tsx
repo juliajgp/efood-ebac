@@ -12,7 +12,7 @@ const Home = () => {
       <Banner />
       <ProductsList
         restaurantes={restaurants}
-        tipoPagina="home"
+        tipopagina="home"
       />
     </>
   )

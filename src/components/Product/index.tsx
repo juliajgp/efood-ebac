@@ -3,7 +3,6 @@ import Tag from '../Tag'
 
 import * as S from './styles'
 import closeIcon from '../../assets/images/fechar.png'
-import Button from '../Button'
 
 import { useDispatch } from 'react-redux'
 import { add, open } from '../../store/reducers/cart'
@@ -122,7 +121,7 @@ const Product = ({
                         title="Clique aqui para adicionar este jogo ao carrinho"
                         onClick={() => {addToCart(); closeModal()}}
                       >
-                          <Tag>{`Adicionar ao Carrinho - R$ ${preco}`}</Tag>
+                          <Tag>{`Adicionar ao Carrinho - ${parseToBrl(preco)}`}</Tag>
                       </button>
                     </div>
                   </div>

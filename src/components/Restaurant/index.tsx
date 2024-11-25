@@ -22,9 +22,6 @@ const Restaurant = ({
   destacado,
   id
 }: Props) => {
-  const lowerTitle = (text: string) => {
-    return text.replace(/\s+/g, "").toLowerCase()
-  }
 
   return (
     <S.Card

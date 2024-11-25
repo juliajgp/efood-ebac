@@ -38,7 +38,7 @@ export const HeaderRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //padding: 0 171px;
+  padding: 0 185px;
 
   > div {
     display: flex;
@@ -78,6 +78,7 @@ export const LinkItem = styled.li`
 export const CartButton = styled.span`
   display: flex;
   cursor: pointer;
+  padding-right: 40px;
 
   @media (max-width: ${breakpoints.tablet}) {
     span {

@@ -4,6 +4,7 @@ import { TagContainer } from '../Tag/styles'
 
 import lixeira from '../../assets/images/lixeira.png'
 import { ButtonContainer } from '../Button/styles'
+import ReactInputMask from 'react-input-mask'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -37,7 +38,11 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
 
-  h2, label {
+  .pedidoConcluido {
+    margin-bottom: 10px;
+  }
+
+  h2, label, p {
     color: ${colors.amarelin} !important;
   }
 
@@ -152,13 +157,10 @@ type RowProps = {
   marginTop?: string
 }
 
-type TabButtonProps = {
-  isActive: boolean
-}
-
 export const Row = styled.div<RowProps>`
   display: flex;
   column-gap: 24px;
+  margin-top: ${(props) => props.marginTop || '0'};
   align-items: flex-end;
 
   @media (max-width: ${breakpoints.tablet}) {
@@ -167,6 +169,9 @@ export const Row = styled.div<RowProps>`
 `
 
 export const InputGroup = styled.div<InputGroupProps>`
+  flex: auto;
+  max-width: ${(props) => props.maxWidth || 'auto'};
+
   display: flex;
   flex-direction: column;
   margin: 6px 0;
@@ -187,7 +192,7 @@ export const InputGroup = styled.div<InputGroupProps>`
     width: 100%;
 
     &.error {
-      border: 1px solid red;
+      border: 2px solid red;
     }
   }
 

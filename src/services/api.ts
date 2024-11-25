@@ -6,7 +6,10 @@ type Product = {
 }
 
 type PurchasePayload = {
-  products: Product[]
+  products: {
+      id: number,
+      price: number
+    }[],
   delivery: {
     receiver: string
     address: {
@@ -27,7 +30,6 @@ type PurchasePayload = {
         year: number
       }
     }
-    installments: number
   }
 }
 
@@ -37,14 +39,14 @@ type PurchaseResponse = {
 
 const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://fake-api-tau.vercel.app/api/efood/restaurantes'
+    baseUrl: 'https://fake-api-tau.vercel.app/api/efood/'
   }),
   endpoints: (builder) => ({
     getRestaurants: builder.query<Restaurantes[], void>({
-      query: () => ''
+      query: () => 'restaurantes'
     }),
     getMenu: builder.query<Restaurantes, string>({
-      query: (id) => `/${id}`
+      query: (id) => `restaurantes/${id}`
     }),
     purchase: builder.mutation<PurchaseResponse, PurchasePayload>({
       query: (body) => ({
