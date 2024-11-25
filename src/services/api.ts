@@ -1,10 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-type Restaurant = {
-  id: number
-  Products: Product[]
-}
-
 type Product = {
   id: number
   price: number
@@ -12,28 +7,25 @@ type Product = {
 
 type PurchasePayload = {
   products: Product[]
-  billing: {
-    name: string
-    email: string
-    document: string
-  }
   delivery: {
-    email: string
+    receiver: string
+    address: {
+      description: string
+      city: string
+      zipCode: string
+      number: number
+      complement: string
+    }
   }
   payment: {
     card: {
-      active: boolean
-      owner?: {
-        name: string
-        document: string
-      }
-      name?: string
-      number?: string
-      expires?: {
-        month: number
+      name: string
+      number: number
+      code?: number
+      expires: {
+        month: number,
         year: number
       }
-      code?: number
     }
     installments: number
   }

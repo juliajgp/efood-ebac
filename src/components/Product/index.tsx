@@ -30,7 +30,8 @@ const Product = ({
   descricao,
   porcao
 }: Props) => {
-  const [teste, setTeste] = useState<Produto>({
+  
+  const [produto, setProduto] = useState<Produto>({
     foto: foto,
     preco: preco,
     id: id,
@@ -42,7 +43,7 @@ const Product = ({
   const dispatch = useDispatch()
 
   const addToCart = () => {
-    dispatch(add(teste))
+    dispatch(add(produto))
     dispatch(open())
   }
   
@@ -119,7 +120,7 @@ const Product = ({
                       <button
                         type="button"
                         title="Clique aqui para adicionar este jogo ao carrinho"
-                        onClick={addToCart}
+                        onClick={() => {addToCart(); closeModal()}}
                       >
                           <Tag>{`Adicionar ao Carrinho - R$ ${preco}`}</Tag>
                       </button>
@@ -133,8 +134,8 @@ const Product = ({
         <div
           onClick={() => {
             closeModal()
-        }}
-        className="overlay"
+          }}
+          className="overlay"
         ></div>
       </S.Modal>
     </>

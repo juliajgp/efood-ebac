@@ -1,8 +1,9 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 
 import lixeira from '../../assets/images/lixeira.png'
+import { ButtonContainer } from '../Button/styles'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -36,6 +37,14 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
 
+  h2, label {
+    color: ${colors.amarelin} !important;
+  }
+
+  input {
+    background-color: ${colors.amarelin};
+  }
+
   button {
     background: none;
 	  color: inherit;
@@ -49,13 +58,18 @@ export const Sidebar = styled.aside`
     width: 100%;
   }
 
-  ${TagContainer} {
-    background-color: ${colors.amarelin};;
+  ${TagContainer}, ${ButtonContainer} {
+    background-color: ${colors.amarelin};
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
     color: ${colors.coral};
+  }
+
+  ${ButtonContainer} {
+    height: 30px;
+    margin-bottom: 8px;
   }
 
   ul {
@@ -87,7 +101,7 @@ export const CartItem = styled.li`
   display: flex;
   background-color: ${colors.amarelin};
   padding: 8px 8px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   position: relative;
 
   img {
@@ -125,5 +139,59 @@ export const CartItem = styled.li`
     position: absolute;
     right: 8px;
     bottom: 8px;
+  }
+`
+/* checkout */
+
+
+type InputGroupProps = {
+  maxWidth?: string
+}
+
+type RowProps = {
+  marginTop?: string
+}
+
+type TabButtonProps = {
+  isActive: boolean
+}
+
+export const Row = styled.div<RowProps>`
+  display: flex;
+  column-gap: 24px;
+  align-items: flex-end;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: block;
+  }
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  display: flex;
+  flex-direction: column;
+  margin: 6px 0;
+
+  label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  input,
+  select {
+    background-color: ${colors.amarelin};
+    border: 1px solid ${colors.amarelin};
+    height: 32px;
+    padding: 0 8px;
+    display: block;
+    width: 100%;
+
+    &.error {
+      border: 1px solid red;
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-top: 16px;
   }
 `
